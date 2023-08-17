@@ -1,20 +1,26 @@
-function calculateTotal() {
-    const productPrices = [8500, 30000, 15000];
-    const totalProducts = productPrices.length;
-    let totalCost = 0;
+const productsArray1 = [
+  { name: "Producto 1", price: 10000 },
+  { name: "Producto 2", price: 30000 },
+  { name: "Producto 3", price: 15000 }
+];
 
-    // Recorremos los productos y sumamos el costo total
-    for (let i = 0; i < totalProducts; i++) {
-    const quantity = parseInt(document.getElementById("product" + (i + 1)).value);
+const productsArray2 = [
+  { name: "Producto A", price: 8500 },
+  { name: "Producto B", price: 25000 },
+  { name: "Producto C", price: 10000 }
+];
 
-      // Verificamos si la cantidad es válida (mayor o igual a cero)
-    if (!isNaN(quantity) && quantity >= 0) {
-        totalCost += productPrices[i] * quantity;
-    }
-    }
+function calculateTotal(products) {
+  const totalCost = products.reduce((total, product, index) => {
+      const quantity = parseInt(document.getElementById("product" + (index + 1)).value);
+      
+      if (!isNaN(quantity) && quantity >= 0) {
+          return total + product.price * quantity;
+      } else {
+          return total;
+      }
+  }, 0);
 
-    // Mostramos el resultado al usuario
-    document.getElementById("totalCost").innerText = "El costo total es: $" + totalCost;
-
+  document.getElementById("totalCost").innerText = "El costo total es: $" + totalCost;
 }
 
