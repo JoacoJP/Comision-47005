@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Costo Total</title>
 </head>
 <body>
-
     <h1>Calculadora de Costo Total</h1>
-    <form id="productForm">
-        <label for="product1">Remera oversize (Precio: $8500):</label>
-        <input type="number" id="product1" min="0" value="0"><br>
-        <label for="product2">Buzo oversize (Precio: $30000):</label>
-        <input type="number" id="product2" min="0" value="0"><br>
-        <label for="product3">Pantalon (Precio: $15000):</label>
-        <input type="number" id="product3" min="0" value="0"><br>
-        <button type="button" onclick="calculateTotal()">Calcular Total</button>
-    </form>
+    
+    <label for="product1">Cantidad Producto 1:</label>
+    <input type="number" id="product1" value="0"><br>
+
+    <label for="product2">Cantidad Producto 2:</label>
+    <input type="number" id="product2" value="0"><br>
+
+    <label for="product3">Cantidad Producto 3:</label>
+    <input type="number" id="product3" value="0"><br>
+
+    <button onclick="calculateTotal(productsArray1, false)">Calcular con IVA</button>
+    <button onclick="calculateTotal(productsArray2, true)">Calcular sin IVA</button>
 
     <p id="totalCost">El costo total es: $0</p>
     <script src="main.js"></script>
 </body>
 </html>
+
